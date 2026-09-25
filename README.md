@@ -126,12 +126,95 @@ Open the printed URL on any device on the same network and start uploading.
 
 ---
 
-## LAN Cable (Direct Connection) Setup
+## LAN Cable (Direct Connection — No Internet or Wi-Fi Needed)
 
-1. Connect two devices with an Ethernet cable
-2. On the **receiving** device: run `filedrop.py`, note the LAN IP shown
-3. On the **sending** device: set a static IP in the same subnet
-4. Open the receiver's IP in any browser and upload
+You can transfer files between two devices using **only an Ethernet cable** — no router, no internet, no Wi-Fi required.
+
+### How it works
+- Connect the two devices with an Ethernet cable
+- Manually assign static IPs on both devices so they can talk to each other
+- Run FileDrop on the receiving device
+- Open the receiver's IP in a browser on the sending device and upload
+
+---
+
+### Step 1 — Check the IP on the sending device (the one with the files)
+
+**Windows:**
+```
+Win + R → type: cmd → press Enter
+ipconfig
+```
+Note the **IPv4 Address** and **Subnet Mask** under the Ethernet adapter.
+
+**Kali / Linux:**
+```bash
+ip addr show
+# or
+ifconfig
+```
+Note the `inet` address on your Ethernet interface (e.g. `eth0`, `enp3s0`).
+
+---
+
+### Step 2 — Set a static IP on the receiving device (the one that will run FileDrop)
+
+Pick any IP in the **same subnet** with a **different last number** than the sender.
+
+> Example: sender is `192.168.1.20` → set receiver to `192.168.1.10`
+
+**Windows:**
+1. `Win + R` → `ncpa.cpl` → Enter
+2. Right-click your **Ethernet** adapter → **Properties**
+3. Select **Internet Protocol Version 4 (TCP/IPv4)** → **Properties**
+4. Choose **Use the following IP address** and fill in:
+   ```
+   IP Address  : 192.168.1.10
+   Subnet Mask : 255.255.255.0
+   Gateway     : (leave blank)
+   ```
+5. Click **OK**
+
+**Kali / Linux:**
+```bash
+# Replace eth0 with your actual interface name
+sudo ip addr add 192.168.1.10/24 dev eth0
+sudo ip link set eth0 up
+```
+
+Also set a static IP on the **sender** the same way (e.g. `192.168.1.20`).
+
+---
+
+### Step 3 — Verify the cable connection
+
+From the receiving device, ping the sender:
+```bash
+ping 192.168.1.20
+```
+If you get replies → cable is working and both devices can see each other.
+
+---
+
+### Step 4 — Run FileDrop on the receiving device
+
+```bash
+python filedrop.py
+```
+
+Output will show:
+```
+  open from another device:
+      http://192.168.1.10:8080/
+```
+
+---
+
+### Step 5 — Open that URL on the sending device's browser
+
+Go to `http://192.168.1.10:8080/` → drag & drop or browse files → they land on the receiver instantly.
+
+> **Tip:** This works even in places with no internet — exam halls, labs, field work, flights, etc.
 
 ---
 
