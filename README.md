@@ -9,6 +9,19 @@
 
 ---
 
+## Screenshots
+
+**Kali Linux — terminal output**
+![Kali terminal](screenshots/kali-terminal.png)
+
+**Windows — terminal output**
+![Windows terminal](screenshots/windows-terminal.png)
+
+**Browser UI**
+![Browser UI](screenshots/browser-ui.png)
+
+---
+
 ## How It Works
 
 1. Run `filedrop.py` on your PC
