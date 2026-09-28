@@ -1,6 +1,6 @@
 # FileDrop
 
-> Lightweight LAN file receiver — send files from **any device** on your network to your PC via browser. No apps, no accounts, no cables.
+> Lightweight LAN file receiver —> send files from **any device** on your network to your PC via browser. No apps, no accounts, no cables.
 
 ![Python](https://img.shields.io/badge/Python-3.7%2B-blue?logo=python&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
@@ -11,10 +11,10 @@
 
 ## Screenshots
 
-**Kali Linux — terminal output**
+**Kali Linux: terminal output**
 ![Kali terminal](screenshots/kali-terminal.png)
 
-**Windows — terminal output**
+**Windows: terminal output**
 ![Windows terminal](screenshots/windows-terminal.png)
 
 **Browser UI**
