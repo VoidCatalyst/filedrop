@@ -138,7 +138,7 @@ You can transfer files between two devices using **only an Ethernet cable** — 
 
 ---
 
-### Step 1 — Check the IP on the sending device (the one with the files)
+### Step 1: Check the IP on the sending device (the one with the files)
 
 **Windows:**
 ```
@@ -157,7 +157,7 @@ Note the `inet` address on your Ethernet interface (e.g. `eth0`, `enp3s0`).
 
 ---
 
-### Step 2 — Set a static IP on the receiving device (the one that will run FileDrop)
+### Step 2: Set a static IP on the receiving device (the one that will run FileDrop)
 
 Pick any IP in the **same subnet** with a **different last number** than the sender.
 
@@ -186,7 +186,7 @@ Also set a static IP on the **sender** the same way (e.g. `192.168.1.20`).
 
 ---
 
-### Step 3 — Verify the cable connection
+### Step 3: Verify the cable connection
 
 From the receiving device, ping the sender:
 ```bash
@@ -196,7 +196,7 @@ If you get replies → cable is working and both devices can see each other.
 
 ---
 
-### Step 4 — Run FileDrop on the receiving device
+### Step 4: Run FileDrop on the receiving device
 
 ```bash
 python filedrop.py
@@ -210,7 +210,7 @@ Output will show:
 
 ---
 
-### Step 5 — Open that URL on the sending device's browser
+### Step 5: Open that URL on the sending device's browser
 
 Go to `http://192.168.1.10:8080/` → drag & drop or browse files → they land on the receiver instantly.
 
